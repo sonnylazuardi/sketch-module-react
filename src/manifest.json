@@ -1,0 +1,32 @@
+{
+  "compatibleVersion": 3,
+  "bundleVersion": 1,
+  "commands": [
+    {
+      "name": "Name Generator",
+      "identifier": "sketchreact.name-generator",
+      "script": "./plugins/name-generator/nameGenerator.js",
+      "handlers": {
+        "run": "onRun",
+        "actions": {
+          "Shutdown": "onShutdown"
+        }
+      }
+    },
+    {
+      "name": "About",
+      "identifier": "sketchreact.about",
+      "script": "./plugins/about/about.js",
+      "handlers": {
+        "run": "onRun",
+        "actions": {
+          "Shutdown": "onShutdown"
+        }
+      }
+    }
+  ],
+  "menu": {
+    "title": "SketchReact",
+    "items": ["sketchreact.name-generator", "sketchreact.about"]
+  }
+}

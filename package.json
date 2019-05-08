@@ -1,0 +1,61 @@
+{
+  "name": "sketch-module-react",
+  "version": "0.1.0",
+  "engines": {
+    "sketch": ">=3.0"
+  },
+  "skpm": {
+    "name": "sketch-react",
+    "manifest": "src/manifest.json",
+    "main": "sketch-react.sketchplugin",
+    "assets": [
+      "assets/**/*"
+    ],
+    "sketch-assets-file": "sketch-assets/icons.sketch"
+  },
+  "scripts": {
+    "build-sketch": "skpm-build && cp -Rf resources/static* sketch-react.sketchplugin/Contents/Resources/_webpack_resources/static",
+    "watch": "skpm-build --watch",
+    "start": "skpm-build --watch",
+    "start-react": "react-scripts start",
+    "build-react": "react-scripts build && cp -Rf build/* resources",
+    "build": "npm run build-react && npm run build-sketch"
+  },
+  "devDependencies": {
+    "@skpm/builder": "^0.5.11",
+    "@skpm/extract-loader": "^2.0.2",
+    "css-loader": "^1.0.0",
+    "html-loader": "^0.5.1"
+  },
+  "resources": [
+    "resources/**/*.js"
+  ],
+  "dependencies": {
+    "@types/jest": "^24.0.12",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.8.16",
+    "@types/react-dom": "^16.8.4",
+    "@types/react-router-dom": "^4.3.3",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.0",
+    "react-scripts": "^3.0.0",
+    "sketch-module-web-view": "^3.0.1",
+    "typescript": "^3.4.5",
+    "webpack": "^4.29.6"
+  },
+  "author": "Sonny Lazuardi Hermawan <sonnylazuardi@gmail.com>",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "homepage": "."
+}
