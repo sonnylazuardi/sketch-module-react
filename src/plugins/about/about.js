@@ -1,6 +1,5 @@
 import BrowserWindow from 'sketch-module-web-view';
 import { getWebview } from 'sketch-module-web-view/remote';
-import UI from 'sketch/ui';
 
 const webviewIdentifier = 'about.webview';
 
@@ -17,13 +16,6 @@ export default function() {
   // only show the window when the page has loaded to avoid a white flash
   browserWindow.once('ready-to-show', () => {
     browserWindow.show();
-  });
-
-  const webContents = browserWindow.webContents;
-
-  // print a message when the page loads
-  webContents.on('did-finish-load', () => {
-    UI.message('UI loaded About!');
   });
 
   browserWindow.loadURL(require('../../../resources/index.html'));
