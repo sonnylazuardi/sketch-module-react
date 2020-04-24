@@ -1,31 +1,35 @@
-import BrowserWindow from 'sketch-module-web-view';
-import { getWebview } from 'sketch-module-web-view/remote';
+const BrowserWindow = require("sketch-module-web-view");
+const { getWebview } = require("sketch-module-web-view/remote");
 
-const webviewIdentifier = 'nameGenerator.webview';
+const { getBundleUrl } = require("../index");
 
-export default function() {
+const webviewIdentifier = "nameGenerator.webview";
+
+export default function () {
   const options = {
     identifier: webviewIdentifier,
     width: 690,
     height: 550,
-    show: false,
+    show: true,
   };
 
   const browserWindow = new BrowserWindow(options);
 
   // only show the window when the page has loaded to avoid a white flash
-  browserWindow.once('ready-to-show', () => {
+  browserWindow.once("ready-to-show", () => {
     browserWindow.show();
   });
 
   const webContents = browserWindow.webContents;
 
   // print a message when the page loads
-  webContents.on('did-finish-load', () => {
-    webContents.executeJavaScript(`window.location.hash = 'nameGenerator'`).catch(console.error);
+  webContents.on("did-finish-load", () => {
+    webContents
+      .executeJavaScript(`window.location.hash = 'nameGenerator'`)
+      .catch(console.error);
   });
 
-  browserWindow.loadURL(require('../../../resources/index.html'));
+  browserWindow.loadURL(getBundleUrl());
 }
 
 // When the plugin is shutdown by Sketch (for example when the user disable the plugin)

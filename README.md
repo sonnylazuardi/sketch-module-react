@@ -15,19 +15,19 @@ _This plugin was created using `skpm`. For a detailed explanation on how things 
 Install the dependencies
 
 ```bash
-npm install
+yarn
 ```
 
-Once the installation is done, you can run some commands inside the project folder:
+For development:
 
 ```bash
-npm run build
+yarn dev
 ```
 
-To watch for changes:
+For building the plugin
 
 ```bash
-npm run watch
+yarn build
 ```
 
 ### Custom Configuration
@@ -52,7 +52,7 @@ To customize webpack create `webpack.skpm.config.js` file which exports function
  * @param {object} config - original webpack config.
  * @param {boolean} isPluginCommand - whether the config is for a plugin command or a resource
  **/
-module.exports = function(config, isPluginCommand) {
+module.exports = function (config, isPluginCommand) {
   /** you can change config here **/
 };
 ```
